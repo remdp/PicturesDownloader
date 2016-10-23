@@ -1,5 +1,3 @@
-import java.util.Observable;
-import java.util.Observer;
 
 public class Main {
 
@@ -12,8 +10,6 @@ public class Main {
         pathes[3] = "http://minionomaniya.ru/wp-content/uploads/2015/10/картинки-из-мультфильма-миньоны-2015.jpg";
         pathes[4] = "http://minionomaniya.ru/wp-content/uploads/2015/08/Миньон-Боб.jpg";
 
-        ImagesLoader imagesLoader = new ImagesLoader();
-        imagesLoader.loadImages(pathes);
-
+        new ImagesLoader(pathes).loadImages();
     }
 }

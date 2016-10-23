@@ -12,11 +12,20 @@ import java.util.Observer;
  */
 public class ImagesLoader  implements Observer{
 
+    private String[] urls;
+    private int countImages = 0;
+
+    public ImagesLoader(String[] urls) {this.urls = urls;}
+
     public void update (Observable obj, Object arg){
         System.out.println("Загружена картинка: " + arg);
+        countImages++;
+        if (countImages == urls.length){
+             System.out.println("Загрузка картинок завершена!" );
+        }
     }
 
-    public void loadImages(String[] urls) {
+    public void loadImages() {
         String folder = "d:/";
         String extension = ".jpg";
         for (int i = 0; i < urls.length; i++) {
@@ -67,8 +76,5 @@ public class ImagesLoader  implements Observer{
             }
             ImageLoader imageLoader = new ImageLoader(urls[i],"File" + i, this);
         }
-
-     //   System.out.println("Загрузка картинок завершена!" );
-
     }
 }
